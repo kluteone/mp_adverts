@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Registration:register{% endblock %}
+
+{% block body %}
+<div class="container">
+	{{ form_start(form, {'attr': {'style': 'max-width: 330px; padding: 15px; margin: 0 auto;'}} ) }}
+	<h2 class="form-signin-heading">Registration form</h2>
+	{{ form_row(form.name, {'attr': {'class': 'form-control'}} ) }}
+	{{ form_row(form.email, {'attr': {'class': 'form-control'}} ) }}
+	{{ form_row(form.plainPassword.first, {'attr': {'class': 'form-control'}} ) }}
+	{{ form_row(form.plainPassword.second, {'attr': {'class': 'form-control'}} ) }}
+	<br>
+	<div class="row">
+		<div class="col-md-6">	
+			<button class="btn btn-primary btn-block" type="submit">Register</button>
+		</div>
+		<div class="col-md-6">	
+			<a href="/" class="btn btn-default btn-block" role="button">Cancel</a>
+		</div>
+	</div>
+	{{ form_end(form) }}
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+<div class="container">
+	<br>
+	<div class="col-md-6 col-md-offset-3">
+		<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+					{% if (is_logged_in) %}
+					<li><a href="list_user_ads">My Adverts</a></li>
+					<li><a href="logout">Logout</a></li>
+					{% else %}
+					<li><a href="login">Login</a></li>
+					<li><a href="register">Register</a></li>
+					{% endif %}
+				</ul>
+				<h2 class="text-muted">Advertise Here!
+					<a href="/post_ad" class="btn btn-lg btn-success" role="button">Post Advert</a></h2>
+				</nav>
+
+
+			</div>
+			<div class="row row-offcanvas row-offcanvas-right">
+				<div class="row " style="word-wrap: break-word;">
+					{% for advert in adverts %}
+					<div class="panel panel-primary">
+						<div class="panel-heading">
+							<b>{{advert.title}}</b>
+						</div>
+						<div class="panel-body">
+							{{advert.description}}
+						</div>
+						<div class="panel-footer"><b>{{advert.createDate|date('Y-m-d H:i')}}</b> by <b>{{advert.name}}</b></div>
+					</div>
+					{% endfor %}
+				</div><!--/row-->
+			</div>
+			<div>
+				<hr>
+				<footer>
+					<p>© 2016 Adverts.</p>
+				</footer>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

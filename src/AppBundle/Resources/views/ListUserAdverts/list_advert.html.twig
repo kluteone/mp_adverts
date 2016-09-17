@@ -1,0 +1,36 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Current User List{% endblock %}
+
+{% block body %}
+<div class="container">
+	<br>
+
+	<div class="col-md-6 col-md-offset-3">
+			<div class="header clearfix">
+			<nav>
+				<ul class="nav nav-pills pull-right">
+				<li><a href="/">Go Back To Listings</a></li>
+					<li><a href="logout">Logout</a></li>
+				</ul>
+				<h2 class="text-muted">Your Adverts: </a></h2>
+				</nav>
+			</div>
+		<div class="row row-offcanvas row-offcanvas-right">
+			<div class="row " style="word-wrap: break-word;">
+				{% for advert in adverts %}
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<b>{{advert.title}}</b>
+					</div>
+					<div class="panel-body">
+						{{advert.description}}
+					</div>
+					<div class="panel-footer"><b>{{advert.createDate|date('Y-m-d H:i')}}</b></b></div>
+				</div>
+				{% endfor %}
+			</div><!--/row-->
+		</div>
+	</div>
+</div>
+{% endblock %}

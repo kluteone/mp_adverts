@@ -1,0 +1,22 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Post Advert{% endblock %}
+
+{% block body %}
+<div class="container">
+	{{ form_start(form, {'attr': {'style': 'max-width: 330px; padding: 15px; margin: 0 auto;'}} ) }}
+	<h2 class="form-signin-heading">Post Advert</h2>
+	{{ form_row(form.title, {'attr': {'class': 'form-control'}} ) }}
+	{{ form_row(form.description, {'attr': {'class': 'form-control'}} ) }}
+	<br>
+	<div class="row">
+		<div class="col-md-6">	
+			<button class="btn btn-primary btn-block" type="submit">Post Advert</button>
+		</div>
+		<div class="col-md-6">	
+			<a href="/" class="btn btn-default btn-block" role="button">Cancel</a>
+		</div>
+	</div>
+	{{ form_end(form) }}
+</div>
+{% endblock %}

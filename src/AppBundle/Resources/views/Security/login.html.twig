@@ -1,0 +1,35 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <form style="max-width: 330px; padding: 15px; margin: 0 auto;" action="{{ path('security_login_check') }}" method="post">
+        <h2 class="form-signin-heading">Please Login</h2>
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="_email" value="{{ last_username }}" class="form-control" required="" autofocus="">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="_password" class="form-control" required="">
+        <br>
+        <div class="row">
+            <div class="col-md-4">  
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
+            </div>
+            <div class="col-md-4">  
+                <a href="/register" class="btn btn-primary btn-block" role="button">Register</a>
+            </div>
+            <div class="col-md-4">  
+                <a href="/" class="btn  btn-default btn-block" role="button">Cancel</a>
+            </div>
+        </div>
+
+        {% if error %}
+        <br>
+        <div class="alert alert-danger">
+            {{ error.messageKey|trans(error.messageData) }}
+        </div>
+        {% endif %}
+    </form>
+</div>
+{% endblock %}
